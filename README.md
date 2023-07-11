@@ -1,4 +1,4 @@
-b1. Brauzerda JavaScript veb-sahifani manipulyatsiya qilish, foydalanuvchi va veb-server bilan o'zaro aloqa qilish 
+1. Brauzerda JavaScript veb-sahifani manipulyatsiya qilish, foydalanuvchi va veb-server bilan o'zaro aloqa qilish 
     bilan bog'liq hamma narsani qila oladi.
 
 2. JavaScript-da o'zgaruvchilar nomlarida ikkita cheklov mavjud:
@@ -16,38 +16,38 @@ b1. Brauzerda JavaScript veb-sahifani manipulyatsiya qilish, foydalanuvchi va ve
 6. let a; 
     uzgaruvchini elon qildik lekin unga qiymat biriktirmasak u a=undefined ga teng bo`ladi
 
-7. typeof undefined // "undefined"
-    typeof 0 // "number"
-    typeof 10n // "bigint"
-    typeof true // "boolean"
-    typeof "foo" // "string"
-    typeof Symbol("id") // "symbol"
-    typeof Math // "object"  (1)
-    typeof null // "object"  (2)  -> Null uchun "ob'ekt" qaytariladi - bu tildagi xato, u aslida ob'ekt emas.
-    typeof alert // "function"  (3)
+7. typeof undefined // "undefined" <br />
+    typeof 0 // "number" <br />
+    typeof 10n // "bigint" <br />
+    typeof true // "boolean" <br />
+    typeof "foo" // "string" <br />
+    typeof Symbol("id") // "symbol" <br />
+    typeof Math // "object"  (1) <br />
+    typeof null // "object"  (2)  -> Null uchun "ob'ekt" qaytariladi - bu tildagi xato, u aslida ob'ekt emas. <br />
+    typeof alert // "function"  (3) <br />
 
-8. 2 xil sintaksis
-    typeof(x)
-    typeof x 
+8. 2 xil sintaksis <br />
+    typeof(x) <br />
+    typeof x  <br />
 
 9. JavaScript-da 8 ta asosiy ma'lumotlar turi mavjud.
-    number
-    string
-    bigint
-    boolean
-    null
-    undefined
-    symbol
-    object
+    number <br />
+    string <br />
+    bigint <br />
+    boolean <br />
+    null <br />
+    undefined <br />
+    symbol <br />
+    object <br />
 
-10. prompt ikkita argumentni qabul qiladi:
-    prompt -> foydalanuvchidan matn kiritishni so'ragan xabarni ko'rsatadi
+10. prompt ikkita argumentni qabul qiladi: <br />
+    prompt -> foydalanuvchidan matn kiritishni so'ragan xabarni ko'rsatadi <br />
     result = prompt(title, [default]);  
 
-11. confirm ikkita tugmachali modal oynani ko'rsatadi question: OK va Bekor qilish.
+11. confirm ikkita tugmachali modal oynani ko'rsatadi question: OK va Bekor qilish. <br />
     Natija, OK bosilsa true aks holda false
-    
-    let isBoss = confirm("Are you the boss?");
+    <br />
+    let isBoss = confirm("Are you the boss?"); <br />
     alert( isBoss ); // true if OK is pressed
 
 12. Type Conversions
@@ -58,24 +58,31 @@ b1. Brauzerda JavaScript veb-sahifani manipulyatsiya qilish, foydalanuvchi va ve
         Intuitiv ravishda "bo'sh" bo'lgan, 0, bo'sh string, null, undefined va NaN kabi qiymatlar false bo'ladi.
         Boshqa valuelar true aylanadi.
         
-    Numeric Conversion -> Number(str), "6" / "2", parseInt(str), parseFloat(str), +'12', str * 1, ~~str
+    Numeric Conversion -> 
+        Number(str),  <br />
+        "6" / "2",  <br />
+        parseInt(str),  <br />
+        parseFloat(str),  <br />
+        +'12',  <br />
+        str * 1,  <br />
+        ~~str <br />
     
     Numeric Conversion qoidalari:        
-        undefined -> NaN
-        null -> 0
-        true and false -> 	1 va 0
-        string -> Boshidan va oxiridagi bo'shliqlar (bo'shliqlar, yorliqlar \t, yangi qatorlar va boshqalarni o'z ichiga oladi) olib tashlanadi. \n Qolgan qator bo'sh bo'lsa, natija 0. Aks holda, raqam satrdan "o'qiladi". Xato beradi NaN.
+        undefined -> NaN <br /> 
+        null -> 0 <br /> 
+        true and false -> 	1 va 0 <br /> 
+        string -> Boshidan va oxiridagi bo'shliqlar (bo'shliqlar, yorliqlar \t, yangi qatorlar va boshqalarni o'z ichiga  <br /> oladi) olib tashlanadi. \n Qolgan qator bo'sh bo'lsa, natija 0. Aks holda, raqam satrdan "o'qiladi". Xato beradi NaN.
 
 13. let b=2, a=1;
     let c = 3 - (a = b + 1); // 0
 
-14. null == undefined // true
-    null > 0 // false
-    null == 0 // false
-    NaN === NaN // false
-    null >= 0 // true
-    undefined || null || 0 -> // 0 (all falsy, returns the last value)
-    !!"non-empty string" // true
+14. null == undefined // true <br />
+    null > 0 // false <br />
+    null == 0 // false <br />
+    NaN === NaN // false <br />
+    null >= 0 // true <br />
+    undefined || null || 0 -> // 0 (all falsy, returns the last value) <br />
+    !!"non-empty string" // true <br />
     !!null // false
 
 15. Ularning orasidagi muhim farq shundaki:
@@ -116,8 +123,8 @@ ex-2:
         alert(code); // 1, 41, 44, 49
     }
 
-20. Cloning and merging, Object.assign -> shallow copy
-    1-way.
+20. Cloning and merging, Object.assign -> shallow copy <br />
+    1-way. <br />
     let user = {
         name: "John",
         age: 30
@@ -129,21 +136,21 @@ ex-2:
     for (let key in user) {
         clone[key] = user[key];
     }
-
-    2-way.
+<br />
+    2-way. <br />
     let user = {
       name: "John",
       age: 30
     };
 
     let clone = Object.assign({}, user);
-
-    3-way.
+<br />
+    3-way. <br />
     spread operator
     { ...user }
 
 
-21. Nested cloning -> deep copy
+21. Nested cloning -> deep copy <br />
     nested cloningda object assign xato ishlaydi uni urniga biz <b>structuredClone</b> foydalanamiz
 
     let user = {
@@ -159,7 +166,7 @@ ex-2:
     user.sizes.width = 60;    // user size uzgardi lekin cloneda uzgarmadi
     alert(clone.sizes.width); // 50,
 
-22. Garbage collection
+22. Garbage collection <br />
     let user = {
         name: "John"
     };
@@ -172,7 +179,7 @@ ex-2:
 
     ikkalasi ham bir xil manzilga murojjat qilsa ham lekin user=null bulganda admin qolaveradi
 
-23. Objectda this bu objectni uziga teng buladi
+23. Objectda this bu objectni uziga teng buladi <br />  
     let user = {
         name: "John",
         age: 30,
@@ -192,7 +199,7 @@ ex-2:
 25. Optional chaining ? oraliq xususiyat mavjud bo'lmasa ham, 
     o'rnatilgan ob'ekt xususiyatlariga kirishning xavfsiz usulidir.
     
-    ?.() mavjud bo'lmagan funksiyani chaqirish uchun ishlatiladi.
+    ?.() mavjud bo'lmagan funksiyani chaqirish uchun ishlatiladi. <br />
     let userAdmin = {
         admin() {
             alert("I am admin");
@@ -203,8 +210,8 @@ ex-2:
 
     Optional chaing ? sintaksis uchta shaklga ega:
 
-    obj?.prop- obj.propagar objmavjud bo'lsa, qaytaradi, aks holda undefined.
-    obj?.[prop]- obj[prop]agar objmavjud bo'lsa, qaytaradi, aks holda undefined.
+    obj?.prop- obj.propagar objmavjud bo'lsa, qaytaradi, aks holda undefined. <br />
+    obj?.[prop]- obj[prop]agar objmavjud bo'lsa, qaytaradi, aks holda undefined. <br />
     obj.method?.()– obj.method()agar obj.methodmavjud bo'lsa qo'ng'iroq qiladi, aks holda qaytaradi undefined.
     
 26. Symbol orqali objectga key yaratganimzda ular for kabi looplarda kurinmaydi.
@@ -230,7 +237,7 @@ ex-2:
 
 29. isNaN(value) -> value ni numnerga convertatsiya qiladi va NaN bilan tekshiradi.
 
-30. Boshqacha qilib aytganda, arr.at(i):
+30. arr.at(i): <br />
 
     agar i >= 0 bo‘lsa, arr[i] bilan aynan bir xil.
     i ning manfiy qiymatlari uchun u massiv oxiridan orqaga qadam tashlaydi.
@@ -238,33 +245,34 @@ ex-2:
     let fruits = ["Apple", "Orange", "Plum"];
     alert( fruits.at(-1) ); // Plum
 
-31. Ishlash
-    Push/pop usullari tez ishlaydi, shift/unshift esa sekin.
+31. Push/pop usullari tez ishlaydi, shift/unshift esa sekin. <br />
     sababi shift/unshift qushganda va ushirganda indexlarni surilishiga vaqt ketadi
 
-32. Massivlarda Symbol.toPrimitive ham, valueOf ham mavjud emas, 
-    ular faqat toString konversiyasini amalga oshiradi,
-    shuning uchun bu erda [] bo'sh satrga aylanadi, [1] "1" ga aylanadi va [1,2] "1,2" ga aylanadi.
+32. Massivlarda Symbol.toPrimitive ham, valueOf ham mavjud emas, <br />
+    ular faqat toString konversiyasini amalga oshiradi, <br />
+    shuning uchun bu erda [] bo'sh satrga aylanadi, [1] "1" ga aylanadi va [1,2] "1,2" ga aylanadi. <br />
 
-    alert( [] + 1 ); // "1"
-    alert( [1] + 1 ); // "11"
+    alert( [] + 1 ); // "1" <br />
+    alert( [1] + 1 ); // "11" <br />
     alert( [1,2] + 1 ); // "1,21"
 
-33. splice() -> arr.splice(start[, deleteCount, elem1, ..., elemN])
+33. splice() -> arr.splice(start[, deleteCount, elem1, ..., elemN]) <br />
     slice([start], [end])
 
-34. find() -> shart bajariladigan 1 ta 1-elemntni qaytaradi
+34. find() -> shart bajariladigan 1 ta 1-elemntni qaytaradi <br />
     filter() -> shart bajariladigan hammasini
 
-35. Map - bu xuddi Object. Ammo asosiy farq shundaki, Maphar qanday turdagi kalitlarga ruxsat beriladi.
+35. Map - bu xuddi Object. Ammo asosiy farq shundaki, Maphar qanday turdagi kalitlarga ruxsat beriladi. <br />
     
-    hattoki key sifatida objectni ham olishi mumkin:
+    hattoki key sifatida objectni ham olishi mumkin: <br />
+    
     let john = { name: "John" };
     let visitsCountMap = new Map();
     visitsCountMap.set(john, 123);
     alert( visitsCountMap.get(john) ); // 123
 
-    mapni aylanishni 3 ta usul mavjud:
+    mapni aylanishni 3 ta usul mavjud: <br />
+
     map.keys()– kalitlar uchun iteratsiyani qaytaradi,
     map.values()– qiymatlar uchun iteratsiyani qaytaradi,
     map.entries()– yozuvlar uchun iteratsiyani qaytaradi [key, value], u sukut boʻyicha for..of.
@@ -276,11 +284,12 @@ ex-2:
 
 38. WeakSet Setga o'xshaydi, lekin biz faqat ob'ektlarni qo'shishimiz mumkin WeakSetga(pirmitivlarni emas).
 
-39. Object.keys, values, entries
+39. Object.keys, values, entries <br />
     let user = {
         name: "John",
         age: 30
     };
-    Object.keys(user) = ["name", "age"]
-    Object.values(user) = ["John", 30]
+    <br />
+    Object.keys(user) = ["name", "age"] <br />
+    Object.values(user) = ["John", 30] <br />
     Object.entries(user) = [ ["name","John"], ["age",30] ]
