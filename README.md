@@ -101,27 +101,25 @@
 18. in operatori orqali objectda biz surayotgan key mavjud yoki yuqligini tekshirish mumkn
     "key" in obj.
 
-19. for in
-    for (let key in user) {
-        // keys
-        alert( key );  // name, age, isAdmin
-        // values for the keys
-        alert( user[key] ); // John, 30, true
+19. for in <br />
+    for (let key in user) { <br />
+        alert( key );  // name, age, isAdmin <br />
+        alert( user[key] ); // John, 30, true <br />
 }
-
+<br />
 ex-2:
-    let codes = {
-        "49": "Germany",
-        "41": "Switzerland",
-        "44": "Great Britain",
-        // ..,
-        "1": "USA"
+    let codes = { <br />
+        "49": "Germany", <br />
+        "41": "Switzerland", <br />
+        "44": "Great Britain", <br />
+        // .., <br />
+        "1": "USA" <br />
     };
 
-    for in key larni o`sish tartibida chiqaradi
-    for (let code in codes) {
-        alert(code); // 1, 41, 44, 49
-    }
+    for in key larni o`sish tartibida chiqaradi. 
+        for (let code in codes) {
+            alert(code); // 1, 41, 44, 49
+        }
 
 20. Cloning and merging, Object.assign -> shallow copy <br />
     1-way. <br />
