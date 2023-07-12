@@ -333,3 +333,74 @@ ex-2:
     let funcUser = func.bind(user);
     funcUser(); // John
 `
+
+48. `
+    Ob'ekt xususiyatlari, qiymatdan tashqari, uchta maxsus atributga ega ("bayroqlar" deb ataladi):
+
+    writable - agar rost bo'lsa, qiymat o'zgartirilishi mumkin, aks holda u faqat o'qish uchun.
+    enumerable - agar rost bo'lsa, u holda tsikllar ro'yxatiga kiritiladi, aks holda ro'yxatga kiritilmaydi.
+    configurable - agar rost bo'lsa, xususiyat o'chirilishi mumkin va bu atributlar o'zgartirilishi mumkin, aks holda emas.
+
+    let user = {
+      name: "John"
+    };
+
+    Object.defineProperty(user, "name", {
+      writable: false
+    });
+
+    user.name = "Pete"; // Error: Cannot assign to read only property 'name'
+
+    OBJni clone ham qilsak buladi. -> Shallow copy
+    <b>let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));</b>
+`
+
+49. `Sealing an object globally:
+    Object.preventExtensions(obj) -> Ob'ektga yangi xususiyatlar qo'shishni taqiqlaydi.
+    Object.seal(obj) -> Xususiyatlarni qo'shish/o'chirishni taqiqlaydi. <b>configurable: false</b>
+    Object.freeze(obj) -> Xususiyatlarni qo'shish/o'chirish/o'zgartirishni taqiqlaydi. <b>configurable: false, writable: false</b>
+    Object.isExtensible(obj) -> property qushib bulmasa false, aks holda true qaytaradi
+    Object.isSealed(obj) -> Agar propertini qushib/uchirib bulmasa true, aks holda false
+    Object.isFrozen(obj) -> qushish, uzgartirish, uchirib bulmasa true, aks holda false
+`
+
+50. `Getter and Setter in Obj
+    ex-1
+    let user = {
+      name: "John",
+      surname: "Smith",
+
+      get fullName() {
+        return `${this.name} ${this.surname}`;
+      },
+
+      set fullName(value) {
+        [this.name, this.surname] = value.split(" ");
+      }
+    };
+
+    // set fullName is executed with the given value.
+    user.fullName = "Alice Cooper";
+
+    alert(user.name); // Alice
+    alert(user.surname); // Cooper
+
+    ex-2:
+    function User(name, birthday) {
+      this.name = name;
+      this.birthday = birthday;
+    
+      // age is calculated from the current date and birthday
+      Object.defineProperty(this, "age", {
+        get() {
+          let todayYear = new Date().getFullYear();
+          return todayYear - this.birthday.getFullYear();
+        }
+      });
+    }
+
+    let john = new User("John", new Date(1992, 6, 1));
+
+    alert( john.birthday ); // birthday is available
+    alert( john.age );      // ...as well as the age
+`
