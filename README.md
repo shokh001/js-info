@@ -356,15 +356,21 @@ ex-2:
 `
 
 49. `Sealing an object globally:
+    
     Object.preventExtensions(obj) -> Ob'ektga yangi xususiyatlar qo'shishni taqiqlaydi.
-    Object.seal(obj) -> Xususiyatlarni qo'shish/o'chirishni taqiqlaydi. <b>configurable: false</b>
-    Object.freeze(obj) -> Xususiyatlarni qo'shish/o'chirish/o'zgartirishni taqiqlaydi. <b>configurable: false, writable: false</b>
+    
+    Object.seal(obj) -> Xususiyatlarni qo'shish/o'chirishni taqiqlaydi. configurable: false
+    
+    Object.freeze(obj) -> Xususiyatlarni qo'shish/o'chirish/o'zgartirishni taqiqlaydi. configurable: false, writable: false
+    
     Object.isExtensible(obj) -> property qushib bulmasa false, aks holda true qaytaradi
+    
     Object.isSealed(obj) -> Agar propertini qushib/uchirib bulmasa true, aks holda false
+    
     Object.isFrozen(obj) -> qushish, uzgartirish, uchirib bulmasa true, aks holda false
 `
 
-50. `Getter and Setter in Obj
+1.  `Getter and Setter in Obj
     ex-1
     let user = {
       name: "John",
@@ -389,7 +395,7 @@ ex-2:
     function User(name, birthday) {
       this.name = name;
       this.birthday = birthday;
-    
+
       // age is calculated from the current date and birthday
       Object.defineProperty(this, "age", {
         get() {
