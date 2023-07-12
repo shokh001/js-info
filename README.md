@@ -291,3 +291,45 @@ ex-2:
     Object.keys(user) = ["name", "age"] <br />
     Object.values(user) = ["John", 30] <br />
     Object.entries(user) = [ ["name","John"], ["age",30] ]
+
+40. Rekursiv function - uzini uzi chaqiradigan function <br />
+
+41. Closure -> Tashqi variablelarni eslab turadi va ularga kira oladigan functiondir. <br />
+    
+42. IIFE (immediately-invoked function expressions) -> darhol chaqiradigan function. <br />
+    
+43. var o'zgaruvchilari blok scope ega emas, ularning ko'rinishi joriy funktsiyaga yoki global <br />
+    
+44. JavaScript-da funksiyalar ob'ektlardir. <br />
+    function f1(a) {} <br />
+    alert(f1.length); // 1 <br />
+
+45. call, apply -> context biriktirish uchun ishlatamiz. <br />
+    func.call(context, arg1, arg2, ...) -> argumentlarni alohida oladi <br />
+    func.apply(context, args) -> argumentlarni massiv shaklida oladi <br />
+
+46. Dekorator - bu funksiyaning harakatini o'zgartiradigan o'rash. <br />
+
+47. CallBack sifatida obyekt ichidagi methodlarni yuborsak this context yuqoladi. <br />
+    1-yechim <br />
+    Callbackni functiona uraymiz <br />
+    
+    1. setTimeout(<b>function() { <br />
+        user.sayHi(); // Hello, John! <br />
+    },</b> 1000); <br />
+
+    2. setTimeout(() => user.sayHi(), 1000); // Hello, John! <br />
+    
+    2-yechim:  func.bind(context, [arg1], [arg2], ...); <br />
+    `
+    let user = {
+        firstName: "John"
+    };
+
+    function func() {
+      alert(this.firstName);
+    }
+
+    let funcUser = func.bind(user);
+    funcUser(); // John
+`
