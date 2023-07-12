@@ -1,15 +1,12 @@
-
-let user = {
-    name: 'S',
+let obj = {
+    name: 's',
     region: {
-        title: 'Tashkent',
-        adress: {
-            add: 'addres'
-        }
+        title: 'tashkent'
     }
-};
+}
 
-let clone = structuredClone(user)
-clone.region.title = 'karhsi'
-console.log(user);
+let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+clone.region.title = 'k'
+
+console.log(obj);
 console.log(clone);

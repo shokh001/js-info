@@ -370,7 +370,7 @@ ex-2:
     Object.isFrozen(obj) -> qushish, uzgartirish, uchirib bulmasa true, aks holda false
 `
 
-1.  `Getter and Setter in Obj
+50.  `Getter and Setter in Obj
     ex-1
     let user = {
       name: "John",
@@ -395,7 +395,7 @@ ex-2:
     function User(name, birthday) {
       
       this.name = name;
-      
+
       this.birthday = birthday;
 
       Object.defineProperty(this, "age", {
@@ -418,3 +418,94 @@ ex-2:
 
     alert( john.age );  
 `
+
+51. `Prototype:
+    
+    Faqat ikkita cheklov mavjud:
+
+    1. Ma'lumotnomalar aylana bo'ylab yura olmaydi. Agar biz __proto__ ni doira 
+    ichida belgilashga harakat qilsak, JavaScript xato qiladi.
+
+    2. __proto__ qiymati ob'ekt yoki null bo'lishi mumkin. Boshqa turlar e'tiborga olinmaydi.
+    
+    for in orqali objectni ham prototypedagi objectni ham keylarni olish mumkn, Object.keys()
+    orqali buni qilib bulmay u faqat objetni uzini keylarini olib beradi.
+
+    obj.hasOwnProperty(key): haqiqiy objectdagi key bor yuqligini tekshiradi, agar bor bulsa true aks holda false.
+
+    *JS da barcha objectlarda yashiringan prototype buladi. ular yoki object yoki null buladi
+
+    *Biz ularga obj.__proto__ orqali kirishimiz mumkn.
+
+    *Agar biz obj.method() ni chaqirsak va usul prototipdan olingan bo'lsa, this hali ham objga murojaat qiladi. Shunday qilib, methodlar meros qilib olingan bo'lsa ham, har doim joriy ob'ekt bilan ishlaydi.
+    `
+52. `F.prototype:
+
+    Esda tutingki, yangi ob'ektlar konstruktor funktsiyasi bilan yaratilishi mumkin, masalan, new F().
+
+    Agar F.prototype ob'ekt bo'lsa, u holda new operatori yangi ob'ekt
+    uchun [[Prototip]] ni o'rnatish uchun foydalanadi.
+
+    Biz konstruktor functionni yaratdik lekin new kalit suzi bilan chqairmasak unga prototypeni
+    o'rnatib bulmaydi.
+
+    example:
+
+    let animal = {
+
+      eats: true
+
+    };
+
+    function Rabbit(name) {
+
+      this.name = name;
+    
+    }
+
+    Rabbit.prototype = animal;
+
+    let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+    alert( rabbit.eats ); // true
+`
+
+53. `
+    function Rabbit() {}
+
+    Rabbit.prototype = {
+
+      eats: true
+    
+    };
+
+    let rabbit = new Rabbit();
+
+    *delete Rabbit.prototype.eats; // prototypedagi eatsni uchiradi
+
+    *Rabbit.prototype.eats = false; // rabbit.eats = false
+
+    *Rabbit.prototype = {}; -> hech narsa uzgarmaydi
+    
+    *delete rabbit.eats; -> hech narsa uzgarmaydi
+`
+
+54. {} = new Object() buladi
+    
+    *Object.getPrototypeOf(obj) – objning [[Prototip]] ni qaytaradi.
+    
+    *Object.setPrototypeOf(obj, proto) – obj ning [[Prototype]] ni protoga o'rnatadi.
+
+    *Object.create(proto, [descriptors]) – [[Prototip]] sifatida berilgan proto va ixtiyoriy xususiyat identifikatorlari bilan bo'sh ob'ekt yaratadi.
+
+    *let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj)); -> obj uchun shallow copy
+
+    example:
+
+    let animal = {
+
+        eats: true
+
+    };
+
+    let rabbit = Object.create(animal); // same as {__proto__: animal} create a new object with animal as a prototype
