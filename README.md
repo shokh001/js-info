@@ -509,3 +509,47 @@ ex-2:
     };
 
     let rabbit = Object.create(animal); // same as {__proto__: animal} create a new object with animal as a prototype
+
+55. `
+    * Protected maydonlar _ bilan boshlanadi. Bu til darajasida qo'llanilmagan taniqli konventsiya. Dasturchilar faqat uning sinfidagi _ bilan boshlanadigan maydonga va undan meros qolgan sinflarga kirishlari kerak.
+
+    * private maydonlar # bilan boshlanadi.    
+`
+
+56. `The instanceof operator
+
+    * obj instanceof Class -> object klassga tegishl bulsa true qaytaradi
+
+    * {}.toString.call(arg) == typeof
+`
+
+57. `mixin - bu boshqa sinflar tomonidan meros qilib olinishi kerak bo'lmagan holda    
+    ishlatilishi mumkin bo'lgan usullarni o'z ichiga olgan sinf.
+
+    Ba'zi boshqa tillar bir nechta merosga ruxsat beradi. JavaScript bir nechta merosni qo'llab-quvvatlamaydi, ammo miksinlarni prototipga nusxalash methodlar orqali amalga oshirish mumkin.
+
+    ex:
+
+    // mixin
+    let sayHiMixin = {
+      sayHi() {
+        alert(`Hello ${this.name}`);
+      },
+      sayBye() {
+        alert(`Bye ${this.name}`);
+      }
+    };
+
+    // usage:
+    class User {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+
+    // copy the methods
+    Object.assign(User.prototype, sayHiMixin);
+
+    // now User can say hi
+    new User("Dude").sayHi(); // Hello Dude!
+`
