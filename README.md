@@ -520,7 +520,7 @@ ex-2:
 
     * obj instanceof Class -> object klassga tegishl bulsa true qaytaradi
 
-    * {}.toString.call(arg) == typeof
+    * {}.toString.call() == typeof
 `
 
 57. `mixin - bu boshqa sinflar tomonidan meros qilib olinishi kerak bo'lmagan holda    
@@ -553,3 +553,85 @@ ex-2:
     // now User can say hi
     new User("Dude").sayHi(); // Hello Dude!
 `
+
+58. ` try catch <br />
+    * try...catch konstruktsiyasida yana bitta kod bandi bo'lishi mumkin: finally.
+
+        Agar u mavjud bo'lsa, u barcha holatlarda ishlaydi:
+
+        1. agar xato bo'lmasa, trydan so'ng: try -> finally.
+        2. agar xatolar bo'lsa, catchdan keyin. try -> catch -> finally. 
+
+    * Global catch
+        window.onerror = function(message, url, line, col, error) {
+          // ...
+        };
+`
+
+59. ` Promises
+    
+    Promise chaining-then zanjiri orqali utadi.
+
+    Agar .then (yoki catch/finally) promise qaytarsa, zanjirning qolgan qismi promise hal bo'lguncha kutadi. Bu sodir bo'lganda, uning resulti (yoki errori) keyingi uzatiladi.
+
+    * Promise.all  -> barcha promiselar bajarilguncha kutadi va hammasini 1 vaqtda qaytaradi
+    * Agar promise.all da 1 ta promise reject bulsa usha zahoti promise.all ham reject buladi.
+    * Promise.race -> Promise.all ga o'xshash, lekin faqat birinchi hal qilingan va'dani kutadi va uning natijasini (yoki xatosini) oladi.
+    * Promise.any-> Promise.race ga o'xshaydi, lekin faqat birinchi bajarilgan va'dani kutadi va uning natijasini oladi.
+    * Promise.allSettled -> natijasi qanday bo'lishidan qat'i nazar, barcha va'dalarning bajarilishini kutadi.
+`
+
+60. `async/await
+    
+    * Funksiya oldidagi "async" so'zi bitta oddiy narsani anglatadi: funktsiya har doim va'dani qaytaradi. Boshqa qiymatlar avtomatik ravishda hal qilingan va'daga o'raladi.
+    * await kalit so'zi JavaScript-ni bu va'da bajarilguncha kutishga majbur qiladi va natijani qaytaradi.
+    * Agar biz bir vaqtning uzida kup vadani kutsak Promise.all yaxshi.
+`
+
+61. ` Generator function
+    
+    * Generatorlar talab bo'yicha birin-ketin bir nechta qiymatlarni ("hosil") qaytarishi mumkin. Ular ma'lumotlar oqimini osonlik bilan yaratishga imkon beruvchi iterativlar bilan ajoyib ishlaydi. 
+    * .next() orqali qiymatlarni olsak buladi
+  ```
+    function* generateSequence() {
+        yield 1;
+        yield 2;
+        return 3;
+    }
+
+    let generator = generateSequence();
+
+    let one = generator.next();
+    let two = generator.next()
+
+    console.log(JSON.stringify(one)); //{"value":1,"done":false}
+    console.log(JSON.stringify(two)); //{"value":2,"done":false}
+    ```
+`
+
+62. `Generator functionlarni iteratsiya qilish.
+    ```
+    * 1-way: for..of orqali
+        function* generateSequence() {
+          yield 1;
+          yield 2;
+          yield 3;
+        }
+
+        let generator = generateSequence();
+
+        for(let value of generator) {
+          alert(value); // 1, then 2, then 3
+        }
+        
+    * 2-way: ... spread operatori orqali
+        function* generateSequence() {
+          yield 1;
+          yield 2;
+          yield 3;
+        }
+
+        let sequence = [0, ...generateSequence()]; // [0, 1, 2, 3]
+    ```
+`
+    
