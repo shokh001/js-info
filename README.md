@@ -592,7 +592,7 @@ ex-2:
     
     * Generatorlar talab bo'yicha birin-ketin bir nechta qiymatlarni ("hosil") qaytarishi mumkin. Ular ma'lumotlar oqimini osonlik bilan yaratishga imkon beruvchi iterativlar bilan ajoyib ishlaydi. 
     * .next() orqali qiymatlarni olsak buladi
-  ```
+```
     function* generateSequence() {
         yield 1;
         yield 2;
@@ -606,7 +606,7 @@ ex-2:
 
     console.log(JSON.stringify(one)); //{"value":1,"done":false}
     console.log(JSON.stringify(two)); //{"value":2,"done":false}
-    ```
+```
 `
 
 62. `Generator functionlarni iteratsiya qilish.
@@ -634,4 +634,86 @@ ex-2:
         let sequence = [0, ...generateSequence()]; // [0, 1, 2, 3]
     ```
 `
+
+63. Eval: run a code -> stringdagi kodlarni uqish uchun 
+```
+    let code = 'alert("Hello")';
+    eval(code); // Hello
+```
+
+64. * Currying - funksiyani f(a, b, c) deb chaqiriladigan funksiyadan f(a)(b)(c) kabi   chaqiriladigan funksiyaga aylantiruvchi funksiyalarning transformatsiyasi.
+    `
+    function curry(f) { // curry(f) does the currying transform
+      return function(a) {
+        return function(b) {
+          return f(a, b);
+        };
+      };
+    }
+
+    // usage
+    function sum(a, b) {
+      return a + b;
+    }
+
+    let curriedSum = curry(sum);
+
+    alert( curriedSum(1)(2) ); // 3
+`
+
+65. Bubbling
     
+    * Elementda event sodir bo'lganda, u avval uzida ishlaydi, so'ngra otasida, so'ngra boshqa ajdodlar ustida ishlaydi.
+
+```
+    <form onclick="alert('form')">FORM // 3-ishlaydi
+      <div onclick="alert('div')">DIV  // 2-ishlaydi
+        <p onclick="alert('p')">P</p> // 1-ishlaydi
+      </div>
+    </form>
+```
+
+66. HTML lifecicles
+    * DOMContentLoaded hodisasi - DOM tayyor, shuning uchun ishlov beruvchi DOM tugunlarini qidirishi, interfeysni ishga tushirishi mumkin.
+    yuklanish hodisasi - tashqi resurslar yuklanadi, shuning uchun uslublar qo'llaniladi, tasvir o'lchamlari ma'lum va hokazo.
+
+    * beforeunload hodisasi - foydalanuvchi ketmoqda: biz foydalanuvchi o'zgarishlarni saqlaganligini tekshirib ko'rishimiz va ulardan haqiqatan ham ketishni xohlashini so'rashimiz mumkin.
+
+    * unload - foydalanuvchi deyarli tark etdi, lekin biz hali ham ba'zi operatsiyalarni boshlashimiz mumkin, masalan, statistikani yuborish.
+
+67. async / defer
+    * Skriptlar ularning ostidagi DOM elementlarini ko'ra olmaydi, shuning uchun ular ishlov beruvchilarni qo'sha olmaydi va hokazo.
+    
+    * Agar sahifaning yuqori qismida katta hajmli skript bo'lsa, u "sahifani bloklaydi". Foydalanuvchilar sahifa mazmunini yuklab olinmaguncha va ishga tushmaguncha ko‘ra olmaydi:
+
+    * Defer atributi brauzerga skriptni kutmaslikni aytadi. Buning o'rniga, brauzer HTMLni qayta ishlashni davom ettiradi, DOMni yaratadi. Skript "background"da yuklanadi va DOM to'liq qurilganida ishlaydi.
+    
+    * Defer bilan skriptlar hech qachon sahifani bloklamaydi.
+    
+    * Defer bilan skriptlar har doim DOM tayyor bo'lganda (lekin DOMContentLoaded hodisasidan oldin) bajariladi.
+    
+    * async skriptlar backgroundda yuklanadi va tayyor bo'lganda ishlaydi. DOM va boshqa skriptlar ularni kutishmaydi. Yuklanganda ishlaydigan to'liq mustaqil skript.
+  
+68. * Asosiy ikkilik ob'ekt ArrayBuffer - doimiy uzunlikdagi qo'shni xotira maydoniga havola.
+    
+69. WebSocket - doimiy brauzer-server ulanishiga ega bo'lishning zamonaviy usuli.
+
+    * WebSockets cross-origin cheklovlariga ega emas.
+    * Ular brauzerlarda yaxshi qo'llab-quvvatlanadi.
+    * Satrlar va ikkilik ma'lumotlarni yuborish/qabul qilish mumkin.
+
+70. localstorage
+
+    * Xuddi shu manbadagi barcha tablar va windowlar oʻrtasida taqsimlanadi.
+
+    * Ma'lumotlar muddati tugamaydi. Brauzer qayta ishga tushirilgandan va hatto OS qayta ishga tushirilgandan keyin ham qoladi.
+
+71. sessionStorage
+
+ * SessionStorage faqat joriy brauzer tabida mavjud.
+
+ * Xuddi shu sahifaga ega bo'lgan boshqa tabda boshqa xotira bo'ladi.
+
+ * Lekin u bir xil yorliqdagi iframe-lar o'rtasida taqsimlanadi (ular bir xil kelib chiqishidan kelib chiqqan holda).
+
+ * Ma'lumotlar sahifani yangilashdan omon qoladi, lekin yorliq yopilmaydi/ochilmaydi.
