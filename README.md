@@ -642,6 +642,7 @@ ex-2:
 ```
 
 64. * Currying - funksiyani f(a, b, c) deb chaqiriladigan funksiyadan f(a)(b)(c) kabi   chaqiriladigan funksiyaga aylantiruvchi funksiyalarning transformatsiyasi.
+    * Currying bizga qismlarni osongina olish imkonini beradi. argumentlardan
     `
     function curry(f) { // curry(f) does the currying transform
       return function(a) {
@@ -717,3 +718,6 @@ ex-2:
  * Lekin u bir xil yorliqdagi iframe-lar o'rtasida taqsimlanadi (ular bir xil kelib chiqishidan kelib chiqqan holda).
 
  * Ma'lumotlar sahifani yangilashdan omon qoladi, lekin yorliq yopilmaydi/ochilmaydi.
+
+72. Cookie, localstorage va sessionstorage o'rtasidagi farqlar qanday?
+    <img src='/localandseccion.png' alt='local'/>
