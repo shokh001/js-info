@@ -721,3 +721,26 @@ ex-2:
 
 72. Cookie, localstorage va sessionstorage o'rtasidagi farqlar qanday?
     <img src='/localandseccion.png' alt='local'/>
+
+73. ```var myFunc = function(){
+
+    }```
+
+    da hoisting bulmaydi.
+
+74. Class ichida yaratilgan static methodlar classni uziga tegishli bo'ladi, u orqali yaratilgan objectga emas.
+     ```class Car {
+        constructor(){
+
+        }
+
+        static start(){
+
+        }
+     }
+     Car.start();
+     ```
+
+75. **JavaScript'da inkapsulyatsiya**, obyektning ichki holati (xususiyatlar) va harakatlari (metodlar)ni tashqariga nisbatan yashirin qilishdir. Bu, obyektni ichki mantiqiga tashqari holati almashtirilmasligini anglatadi. Ushbu maqsadda quyidagi chora-tadbirlar amalga oshiriladi:
+
+    * Private variablelar va Metodlar:** Sinfdagi faqat sinf o'zidan murojaat qilinishi mumkin bo'lgan maxsus o'zgaruvchilar va metodlar ishlatiladi.
